@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 
 const useHTTP = (requestConfig, applyData) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -9,9 +9,9 @@ const useHTTP = (requestConfig, applyData) => {
     setError(null);
     try {
       const response = await fetch(requestConfig.url, {
-        method: requestConfig.method,
-        body: requestConfig.body,
-        headers: requestConfig.headers,
+        method: requestConfig.method ? requestConfig.method : "GET",
+        body: requestConfig.body ? requestConfig.body : null,
+        headers: requestConfig.headers ? requestConfig.headers : {},
       });
 
       if (!response.ok) {
