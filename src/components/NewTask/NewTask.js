@@ -1,4 +1,3 @@
-import { useState } from "react";
 import useHTTP from "../hooks/use-http";
 
 import Section from "../UI/Section";
@@ -24,7 +23,7 @@ const NewTask = (props) => {
           "Content-Type": "application/json",
         },
       },
-      createTask.bind(null, taskText);
+      createTask.bind(null, taskText)
     );
   };
 
